@@ -22,11 +22,15 @@ Route::get('/', function () {
 //Route para el blade de home
 Auth::routes();
 
-Route::get('/home', function () {
-    return view('layouts.home');
-});
+//Route::get('/home', function () {
+//    return view('layouts.home');
+//});
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//Route para el blade de Ingreso
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->middleware('auth');
+Route::get('/home',[\App\Http\Controllers\Transportistascontroller::class,'index'])->name('transportista.index');
 Route::get('/create',[\App\Http\Controllers\Transportistascontroller::class,'create'])->name('transportista.create');
+
+//ruta del login
+Route::get('views/auth/login', function () {
+    return view('auth/login');
+})->name('login');

@@ -9,12 +9,12 @@ class Transportistascontroller extends Controller
 {
     public function index()
     {
-        $datos=Transportista::all();
-        return view('welcome',compact('datos'));
+        $datos=transportista::all();
+        return view('layouts.home',compact('datos'));
     }
 
     public function create(){
-        return " Se crea registro";
+        return view('layouts.agregarTransportista');
     }
     public function store(Request  $request){
 
