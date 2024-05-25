@@ -29,4 +29,11 @@ Route::get('/home', function () {
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route para el blade de Ingreso
-Route::get('/create',[\App\Http\Controllers\Transportistascontroller::class,'create'])->name('transportista.create');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->middleware('auth');
+Route::get('/home',[\App\Http\Controllers\EgresoController::class,'index'])->name('egreso.index');
+Route::get('/create',[\App\Http\Controllers\EgresoController::class,'create'])->name('egreso.create');
+Route::post('/home',[\App\Http\Controllers\EgresoController::class,'store'])->name('egreso.store');
+Route::get('/egreso/edit/{id}',[\App\Http\Controllers\EgresoController::class,'edit'])->name('egreso.edit');
+Route::put('/update',[\App\Http\Controllers\EgresoController::class,'update'])->name('egreso.update');
+Route::get('/show',[\App\Http\Controllers\EgresoController::class,'show'])->name('egreso.show');
+Route::delete('/destroy',[\App\Http\Controllers\EgresoController::class,'destroy'])->name('egreso.destroy');
