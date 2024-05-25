@@ -11,7 +11,7 @@ class TransportistaFactory extends Factory
      *
      * @return array
      */
-    protected $transportista = Transportista::class;
+    protected $transportistas = Transportista::class;
     public function definition()
     {
             return [
@@ -20,6 +20,7 @@ class TransportistaFactory extends Factory
                 'telefono' => $this->faker->phoneNumber,
                 'correo_electronico' => $this->faker->email
             ];
+
 
     }
 }
