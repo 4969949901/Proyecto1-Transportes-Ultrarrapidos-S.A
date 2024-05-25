@@ -37,3 +37,4 @@ Route::get('/egreso/edit/{id}',[\App\Http\Controllers\EgresoController::class,'e
 Route::put('/update',[\App\Http\Controllers\EgresoController::class,'update'])->name('egreso.update');
 Route::get('/show',[\App\Http\Controllers\EgresoController::class,'show'])->name('egreso.show');
 Route::delete('/destroy',[\App\Http\Controllers\EgresoController::class,'destroy'])->name('egreso.destroy');
+/*--nuevo commit--*/

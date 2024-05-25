@@ -65,3 +65,4 @@ class EgresoController extends Controller
         return redirect()->route('egresos.index')->with('success', 'Egreso eliminado correctamente.');
     }
 }
+/*--nuevo commit--*/
