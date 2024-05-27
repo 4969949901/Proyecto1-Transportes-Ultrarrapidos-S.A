@@ -16,7 +16,7 @@ class CamionFactory extends Factory
     public function definition()
     {
         return [
-            'placa'=> $this->faker->unique()->numerify(),
+            'placa'=> $this->faker->text,
             'marca' =>$this->faker->name,
             'modelo' =>$this->faker->paragraph,
             'capacidad'=>$this->faker->numerify(),

@@ -12,6 +12,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a39aeb331d.js" crossorigin="anonymous"></script>
     <link href="{{ asset('css/styleHome.css') }}" rel="stylesheet">
 </head>
     <style>
@@ -40,7 +41,10 @@
                     <a href="home"><span class="fa fa-home mr-3"></span> Transportistas</a>
                 </li>
                 <li>
+
                     <a href="tablacamiones.blade.php"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
+
+                    <a href=""><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-gift mr-3"></span>Ingresos </a>
@@ -63,7 +67,7 @@
 
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5 pt-5">
-            <h2 class="mb-4">Bienvenido {{ Auth::user()->name }} .</h2>
+            <h2 class="mb-4">Bienvenido(a) {{ Auth::user()->name }} .</h2>
             <div class="card">
                 <br><br>
                 <h5 class="card-header">Transportes Ultrarrapidos,S.A</h5>
@@ -78,7 +82,7 @@
                     <div class="table table-responsive">
                         <table class="table table-sm table-bordered">
                             <thead>
-                            <td>id_transportisa</td>
+                            <td>id_transportista</td>
                             <td>Nombre</td>
                             <td>Dirección</td>
                             <td>Telefono</td>
@@ -93,13 +97,27 @@
 
                             @foreach($datos as $item)
                                 <tr>
-                                    <td>{{$item->id}}</td>
+                                    <td>{{$item->id_transportista}}</td>
                                     <td>{{$item->nombre}}</td>
                                     <td>{{$item->direccion}}</td>
                                     <td>{{$item->telefono}}</td>
                                     <td>{{$item->correo_electronico}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <form action="{{route($item->id_transportista)}}" method="GET">
+                                        <button class="btn btn-outline-info btn-sm">
+                                            <span class="fa-solid fa-pen-to-square"></span>
+                                        </button>
+                                        </form>
+
+                                    </td>
+                                    <td>
+                                        <form action="{{route($item->id_transportista)}}" method="GET">
+                                            <button class="btn btn-outline-info btn-sm">
+                                                <span class="fa-solid fa-trash-can"></span>
+                                            </button>
+                                        </form>
+
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

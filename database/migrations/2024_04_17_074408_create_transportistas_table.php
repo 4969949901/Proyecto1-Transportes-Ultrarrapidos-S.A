@@ -18,7 +18,7 @@ class CreateTransportistasTable extends Migration
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono');
-            $table->string('correo_electronico')->unique();
+            $table->string('correo_electronico');
             $table->timestamps();
         });
     }
