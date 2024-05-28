@@ -19,8 +19,8 @@ class CreateCamionsTable extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->integer('capacidad');
-            $table->unsignedBigInteger('id_transportista');
-            $table->foreign('id_transportista')->references('id')->on('transportistas');
+            $table->unsignedBigInteger('id_transportistas');
+            $table->foreign('id_transportistas')->references('id_transportistas')->on('transportistas');
             $table->timestamps();
         });
     }

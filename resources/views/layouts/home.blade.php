@@ -38,10 +38,10 @@
             </div>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="home"><span class="fa fa-home mr-3"></span> Transportistas</a>
+                    <a href="home.blade.php"><span class="fa fa-truck" aria-hidden="true mr-3"></span> Transportistas</a>
                 </li>
                 <li>
-                    <a href=""><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
+                    <a href="#"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-gift mr-3"></span>Ingresos </a>
@@ -56,7 +56,14 @@
                     <a href="#"><span class="fa fa-support mr-3"></span> Generar reportes</a>
                 </li>
                 <li>
-                    <a href="{{ route('logout') }}"><span class="fa fa-support mr-3"></span> Cerrar Sesión</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  > <span class="fa fa-sign-in mr-3" > </span>
+                        Cerrar Sesión
+                    </a>
                 </li>
             </ul>
 
@@ -79,7 +86,7 @@
                     <div class="table table-responsive">
                         <table class="table table-sm table-bordered">
                             <thead>
-                            <td>id_transportista</td>
+                            <td>Codigo</td>
                             <td>Nombre</td>
                             <td>Dirección</td>
                             <td>Telefono</td>
@@ -88,19 +95,17 @@
                             <td>Eliminar</td>
                             </thead>
 
-
-
                             <tbody>
 
                             @foreach($datos as $item)
                                 <tr>
-                                    <td>{{$item->id_transportista}}</td>
+                                    <td>{{$item->id_transportistas}}</td>
                                     <td>{{$item->nombre}}</td>
                                     <td>{{$item->direccion}}</td>
                                     <td>{{$item->telefono}}</td>
                                     <td>{{$item->correo_electronico}}</td>
                                     <td>
-                                        <form action="{{route($item->id_transportista)}}" method="GET">
+                                        <form action="{{route('transportista.edit',$item->id_transportistas)}}" method="GET">
                                         <button class="btn btn-outline-info btn-sm">
                                             <span class="fa-solid fa-pen-to-square"></span>
                                         </button>
@@ -108,7 +113,7 @@
 
                                     </td>
                                     <td>
-                                        <form action="{{route($item->id_transportista)}}" method="GET">
+                                        <form action="{{route('transportista.show',$item->id_transportistas)}}" method="GET">
                                             <button class="btn btn-outline-info btn-sm">
                                                 <span class="fa-solid fa-trash-can"></span>
                                             </button>
@@ -119,6 +124,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <div class="pagination pagination-sm">
+                            {{ $datos->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

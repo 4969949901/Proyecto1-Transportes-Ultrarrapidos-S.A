@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
+    public function home ()
     {
         // Obtener el usuario autenticado
         $user =Auth::user();
@@ -36,5 +36,10 @@ class HomeController extends Controller
 
         // Pasar los datos y el usuario a la vista
         return view('layouts.home', ['user' => $user, 'datos' => $dato]);
+    }
+
+    public function index()
+    {
+        return view('layouts.home');
     }
 }
