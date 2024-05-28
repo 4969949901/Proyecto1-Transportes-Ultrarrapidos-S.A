@@ -6,6 +6,17 @@
 
 </head>
 <br><br>
+<style>
+    body {
+        background-image: url('https://beavertrucks.com/wordpress2017/wp-content/uploads/2017/02/vnl-specs-hero-4k.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+    }
+</style>
+<body>
  <div class="m-0 row justify-content-center">
     <br><br>
     <h5 class="text-center">Agregar nuevo Transportista:</h5>
@@ -15,7 +26,7 @@
            @csrf
            <div class="mb-3">
                <label for="nombre" class="form-label">Nombre:</label>
-               <input name="nombre" type="text" class="form-control" required id="nombre" PLACEHOLDER="Ingrese nombre con Inicial Mayuscula"  >
+               <input name="nombre" type="text" class="form-control" required id="nombre"  >
 
            </div>
 
@@ -48,7 +59,7 @@
 
 
  </div>
-
+</body>
 
 </html>
 
