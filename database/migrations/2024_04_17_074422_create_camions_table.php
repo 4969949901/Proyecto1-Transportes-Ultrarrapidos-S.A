@@ -15,7 +15,7 @@ class CreateCamionsTable extends Migration
     {
         Schema::create('camions', function (Blueprint $table) {
             $table->id();
-            $table->string('placa')->unique();
+            $table->string('placa');
             $table->string('marca');
             $table->string('modelo');
             $table->integer('capacidad');

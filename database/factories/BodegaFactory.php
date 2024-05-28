@@ -1,24 +1,26 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Predio;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Bodega;
+use App\Models\Predio;
 
-class prediosFactory extends Factory
+class BodegaFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array
      */
+
+    protected $model1 = Bodega::class;
+
     public function definition()
     {
         return [
-            'pais' => $this->faker->name,
-            'ciudad' => $this->faker->name,
-            'direccion' => $this->faker->address,
-
+            'id_predio' => Predio::inRandomOrder()->first()->id,
+            'numero' => $this->faker->randomNumber(),
         ];
     }
 }
