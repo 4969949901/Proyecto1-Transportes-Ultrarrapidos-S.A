@@ -1,5 +1,5 @@
-@section('contenido')
-    <div class="mt-3 mb-5">
+ @section('contenido')
+     <div class="mt-3 mb-5">
         <div class="row">
             <div class="col-md-3">
                 <div class="contact-info">
@@ -10,20 +10,20 @@
 
             <div class="col-md-9">
                 <div class="contact-form">
-                    <form action="{{route('transportista.update', $transportista -> id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('transportista.update', $transportistas ->id_transportistas)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
                         <label for="">Nombre:</label>
-                        <input type="text" name="nombre" class="form-control" required value="{{$transportista -> nombre}}">
+                        <input type="text" name="nombre" class="form-control" required value="{{$transportistas -> nombre}}">
 
                         <label for="">Dirección:</label>
-                        <input type="text" name="direccion" class="form-control" required value="{{$transportista -> direccion}}">
+                        <input type="text" name="direccion" class="form-control" required value="{{$transportistas -> direccion}}">
 
                         <label for="">Teléfono:</label>
-                        <input type="text" name="telefono" class="form-control" required value="{{$transportista -> telefono}}">
+                        <input type="text" name="telefono" class="form-control" required value="{{$transportistas -> telefono}}">
 
                         <label for="">Correo Electronico:</label>
-                        <input type="text" name="correo_electronico" class="form-control" required value="{{$transportista -> correo_electronico}}">
+                        <input type="text" name="correo_electronico" class="form-control" required value="{{$transportistas -> correo_electronico}}">
 
                         <a href="{{route("transportista.index")}}" class="btn btn-outline-dark btn-sm my-3">
                             Regresar

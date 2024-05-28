@@ -20,7 +20,7 @@ class CamionFactory extends Factory
             'marca' =>$this->faker->name,
             'modelo' =>$this->faker->paragraph,
             'capacidad'=>$this->faker->numerify(),
-            'id_transportista' => Transportista::inRandomOrder()->first()->id
+            'id_transportistas' => Transportista::inRandomOrder()->first()->id_transportistas
         ];
     }
 }

@@ -14,7 +14,7 @@ class CreateTransportistasTable extends Migration
     public function up()
     {
         Schema::create('transportistas', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_transportistas');
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono');
