@@ -13,8 +13,12 @@
 </head>
 <body>
 <div class="container">
+
     @yield('contenido')
     @include('sweetalert::alert')
+
+    @yield('content')
+
 </div>
 
 

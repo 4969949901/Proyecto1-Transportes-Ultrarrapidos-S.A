@@ -41,7 +41,18 @@
                     <a href="home.blade.php"><span class="fa fa-truck" aria-hidden="true mr-3"></span> Transportistas</a>
                 </li>
                 <li>
+
                     <a href="#"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Registro de  Camiones</a>
+
+
+                    <a href="#"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
+
+
+                    <a href="tablacamiones.blade.php"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
+
+                    <a href=""><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
+
+
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-truck-front mr-3"></span> Ingresos </a>
