@@ -24,14 +24,16 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->middleware('auth');
 
 
+
 //RUTAS DE TRANSPORTISTA
+use App\Http\Controllers\TransportistasController;
 Route::get('/home',[\App\Http\Controllers\Transportistascontroller::class,'index'])->name('transportista.index');
 Route::get('/create',[\App\Http\Controllers\Transportistascontroller::class,'create'])->name('transportista.create');
 Route::post('Transportista/store',[\App\Http\Controllers\Transportistascontroller::class,'store'])->name('transportista.store');
-Route::get('Transportista/edit/{id_transportistas}',[\App\Http\Controllers\Transportistascontroller::class,'edit'])->name('transportista.edit');
-Route::put('Transportista/update/{id_transportistas}',[\App\Http\Controllers\Transportistascontroller::class,'update'])->name('transportista.update');
-Route::get('Transportista/show/{id_transportistas}',[\App\Http\Controllers\Transportistascontroller::class,'show'])->name('transportista.show');
-Route::delete('Transportista/destroy', [\App\Http\Controllers\Transportistascontroller::class,'destroy'])->name('transportista.destroy');
+Route::get('Transportista/{id_transportistas}/edit',[\App\Http\Controllers\Transportistascontroller::class,'edit'])->name('transportista.edit');
+Route::put('Transportista/{id_transportistas}/update',[\App\Http\Controllers\Transportistascontroller::class,'update'])->name('transportista.update');
+Route::delete('Transportista/{id_transportistas}/delete',[\App\Http\Controllers\Transportistascontroller::class,'delete'])->name('transportista.delete');
+
 
 
 //Rutas Log-out

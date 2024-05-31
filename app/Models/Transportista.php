@@ -12,11 +12,17 @@ class Transportista extends Model
     protected $primaryKey = 'id_transportistas';
     public $timestamps = true;
 
+    protected $keyType = 'int';
+
+
     protected $fillable = [
+        'id_transportistas',
         'nombre',
         'direccion',
         'telefono',
         'correo_electronico',
         // otros campos...
     ];
+
+
 }
