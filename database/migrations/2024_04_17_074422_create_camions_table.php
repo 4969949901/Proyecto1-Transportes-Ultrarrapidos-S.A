@@ -20,7 +20,7 @@ class CreateCamionsTable extends Migration
             $table->string('modelo');
             $table->integer('capacidad');
             $table->unsignedBigInteger('id_transportistas');
-            $table->foreign('id_transportistas')->references('id_transportistas')->on('transportistas');
+            $table->foreign('id_transportistas')->references('id')->on('transportistas') ->onDelete('cascade');;
             $table->timestamps();
         });
     }

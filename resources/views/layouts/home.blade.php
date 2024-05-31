@@ -41,19 +41,25 @@
                     <a href="home.blade.php"><span class="fa fa-truck" aria-hidden="true mr-3"></span> Transportistas</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Ingreso Camiones</a>
+                    <a href="#"><span class="fa fa-download mr-3 "><small class="d-flex align-items-center justify-content-center"></small></span> Registro de  Camiones</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-gift mr-3"></span>Ingresos </a>
+                    <a href="#"><span class="fa fa-truck-front mr-3"></span> Ingresos </a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-trophy mr-3"></span> Egresos</a>
+                    <a href="#"><span class="fa  fa-truck-fast mr-3"></span>Despachos</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-cog mr-3"></span> </a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-support mr-3"></span> Generar reportes</a>
+                    <a href="#"><span class="fa fa-support mr-3"></span> Reporte de Ingresos</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-support mr-3"></span> Reporte de Egresos</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa fa-support mr-3"></span> Productividad</a>
                 </li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -105,7 +111,7 @@
                                     <td>{{$item->telefono}}</td>
                                     <td>{{$item->correo_electronico}}</td>
                                     <td>
-                                        <form action="{{route('transportista.edit',$item->id_transportistas)}}" method="GET">
+                                        <form action="{{route('transportista.edit',['id_transportistas' => $item->id_transportistas])}}" method="GET">
                                         <button class="btn btn-outline-info btn-sm">
                                             <span class="fa-solid fa-pen-to-square"></span>
                                         </button>
@@ -113,11 +119,15 @@
 
                                     </td>
                                     <td>
-                                        <form action="{{route('transportista.show',$item->id_transportistas)}}" method="GET">
-                                            <button class="btn btn-outline-info btn-sm">
+
+                                        <form action="{{route('transportista.delete', ['id_transportistas' => $item->id_transportistas])}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button   type="submit" class="btn btn-outline-info btn-sm">
                                                 <span class="fa-solid fa-trash-can"></span>
                                             </button>
                                         </form>
+
 
                                     </td>
                                 </tr>

@@ -1,39 +1,67 @@
- @section('contenido')
-     <div class="mt-3 mb-5">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="contact-info">
+@extends('layouts/plantilla')
+<html>
+<head>
 
-                    <h2 class="display-6">Actualizar informacion de Transportista </h2>
-                </div>
-            </div>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-            <div class="col-md-9">
-                <div class="contact-form">
-                    <form action="{{route('transportista.update', $transportistas ->id_transportistas)}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method("PUT")
-                        <label for="">Nombre:</label>
-                        <input type="text" name="nombre" class="form-control" required value="{{$transportistas -> nombre}}">
+</head>
+<br><br>
+    <style>
+        body {
+            background-image: url('https://beavertrucks.com/wordpress2017/wp-content/uploads/2017/02/vnl-specs-hero-4k.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card bg-primary-subtle  border border-success-subtle rounded-4 ">
+                    <div class="card-header">Editar Transportistas </div>
 
-                        <label for="">Dirección:</label>
-                        <input type="text" name="direccion" class="form-control" required value="{{$transportistas -> direccion}}">
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('transportista.update', $transportistas->id_transportistas) }}">
+                            @csrf
+                            @method('PUT')
 
-                        <label for="">Teléfono:</label>
-                        <input type="text" name="telefono" class="form-control" required value="{{$transportistas -> telefono}}">
+                            <!-- Aquí coloca los campos del formulario para editar el camión -->
+                            <!-- Por ejemplo: -->
 
-                        <label for="">Correo Electronico:</label>
-                        <input type="text" name="correo_electronico" class="form-control" required value="{{$transportistas -> correo_electronico}}">
+                            <div class="form-group">
+                                <label for="nombre">Nombre :</label>
+                                <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $transportistas->nombre }}">
+                            </div>
 
-                        <a href="{{route("transportista.index")}}" class="btn btn-outline-dark btn-sm my-3">
-                            Regresar
-                        </a>
-                        <button class="btn btn-outline-info btn-sm my-3">
-                            Actualizar
-                        </button>
-                    </form>
+                            <div class="form-group">
+                                <label for="direccion">Dirección:</label>
+                                <input type="text" name="direccion" id="direccion" class="form-control" value="{{ $transportistas->direccion }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono:</label>
+                                <input type="text" name="modelo" id="modelo" class="form-control" value="{{ $transportistas->telefono }}">
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="correo_electronico" class="form-label">Correo Electronico:</label>
+                                <input type="email" name="correo_electronico" id="correo_electronico" class="form-control" value="{{ $transportistas->correo_electronico }}">
+
+                            </div>
+
+
+                            <!-- Agrega los demás campos del camión que desees editar -->
+                            <a class="btn btn-primary" href="{{route('transportista.index')}}" role="button">Regresar</a>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+</body>
+</html>

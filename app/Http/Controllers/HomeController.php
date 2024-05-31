@@ -40,6 +40,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('layouts.home');
+        // Obtener todos los transportistas desde la base de datos
+        $transportistas = Transportista::all();
+
+        // Pasar los transportistas a la vista
+        return view('layouts.home', compact('transportistas'));
     }
 }
