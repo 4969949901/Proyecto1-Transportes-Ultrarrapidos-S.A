@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-    @yield('contenido')
+    @yield('content')
 </div>
 
 <!-- Optional JavaScript; choose one of the two! -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\PilotosController;
 use App\Http\Controllers\AuthController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +41,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
 //Route para el blade de home
 Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->middleware('auth');
@@ -55,6 +55,11 @@ Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->n
 
 
 //RUTAS DE TRANSPORTISTAS
+
+
+
+//RUTAS DE TRANSPORTISTA
+
 Route::get('/home',[\App\Http\Controllers\Transportistascontroller::class,'index'])->name('transportista.index');
 Route::get('/create',[\App\Http\Controllers\Transportistascontroller::class,'create'])->name('transportista.create');
 Route::post('Transportista/store',[\App\Http\Controllers\Transportistascontroller::class,'store'])->name('transportista.store');
@@ -63,13 +68,27 @@ Route::put('Transportista/update/{id_transportistas}',[\App\Http\Controllers\Tra
 Route::get('Transportista/show/{id_transportistas}',[\App\Http\Controllers\Transportistascontroller::class,'show'])->name('transportista.show');
 Route::delete('Transportista/destroy', [\App\Http\Controllers\Transportistascontroller::class,'destroy'])->name('transportista.destroy');
 
+
 //RUTAS DE CAMIONES
+
+
+//Rutas Log-out
+Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+});
+
+// ruta camiones
+use App\Http\Controllers\CamionesController;
+
 Route::get('/home',[\App\Http\Controllers\CamionesController::class,'index'])->name('camion.index');
 Route::get('/camion/create',[\App\Http\Controllers\CamionesController::class,'create'])->name('camion.create');
 Route::post('/camion',[\App\Http\Controllers\CamionesController::class,'store'])->name('camion.store');
 Route::get('/camion/{id}/edit', [\App\Http\Controllers\CamionesController::class, 'edit'])->name('camion.edit');
 Route::put('/camion/{id}/update', [\App\Http\Controllers\CamionesController::class, 'update'])->name('camion.update');
 Route::get('/camion/{id}/delete', [\App\Http\Controllers\CamionesController::class, 'delete'])->name('camion.delete');
+
 
 
 //RUTAS DE PREDIO
@@ -90,4 +109,17 @@ Route::Post('/piloto/store',[\App\Http\Controllers\PilotosController::class,'sto
 Route::get('/piloto/edit/{id}', [\App\Http\Controllers\PilotosController::class, 'edit'])->name('piloto.edit');
 Route::put('/piloto/update/{id}',[\App\Http\Controllers\PilotosController::class,'update'])->name('piloto.update');
 Route::get('/piloto/delete/{id}',[\App\Http\Controllers\PilotosController::class,'delete'])->name('piloto.delete');
+
+
+
+//ruta del login
+
+/*Route::get('views/auth/login', function () {
+    return view('auth/login');
+})->name('login');*/
+
+use App\Http\Controllers\AuthController;
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
 
